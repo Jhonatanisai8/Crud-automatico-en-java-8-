@@ -177,9 +177,9 @@ public class frmCrud extends JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         int[] selected = masterTable.getSelectedRows();
-        List<com.mycompany.crud_atomaticojava8.iu.Animales> toRemove = new ArrayList<com.mycompany.crud_atomaticojava8.iu.Animales>(selected.length);
+        List<com.mycompany.crud_atomaticojava8.persistencia.Animales> toRemove = new ArrayList<com.mycompany.crud_atomaticojava8.persistencia.Animales>(selected.length);
         for (int idx = 0; idx < selected.length; idx++) {
-            com.mycompany.crud_atomaticojava8.iu.Animales a = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+            com.mycompany.crud_atomaticojava8.persistencia.Animales a = list.get(masterTable.convertRowIndexToModel(selected[idx]));
             toRemove.add(a);
             entityManager.remove(a);
         }
@@ -187,7 +187,7 @@ public class frmCrud extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        com.mycompany.crud_atomaticojava8.iu.Animales a = new com.mycompany.crud_atomaticojava8.iu.Animales();
+        com.mycompany.crud_atomaticojava8.persistencia.Animales a = new com.mycompany.crud_atomaticojava8.persistencia.Animales();
         entityManager.persist(a);
         list.add(a);
         int row = list.size() - 1;
@@ -202,8 +202,8 @@ public class frmCrud extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<com.mycompany.crud_atomaticojava8.iu.Animales> merged = new ArrayList<com.mycompany.crud_atomaticojava8.iu.Animales>(list.size());
-            for (com.mycompany.crud_atomaticojava8.iu.Animales a : list) {
+            List<com.mycompany.crud_atomaticojava8.persistencia.Animales> merged = new ArrayList<com.mycompany.crud_atomaticojava8.persistencia.Animales>(list.size());
+            for (com.mycompany.crud_atomaticojava8.persistencia.Animales a : list) {
                 merged.add(entityManager.merge(a));
             }
             list.clear();
@@ -217,7 +217,7 @@ public class frmCrud extends JPanel {
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextField idAnimalField;
     private javax.swing.JLabel idAnimalLabel;
-    private java.util.List<com.mycompany.crud_atomaticojava8.iu.Animales> list;
+    private java.util.List<com.mycompany.crud_atomaticojava8.persistencia.Animales> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JButton newButton;

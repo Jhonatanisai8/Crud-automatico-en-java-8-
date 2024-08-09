@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.crud_atomaticojava8.iu;
+package com.mycompany.crud_atomaticojava8.persistencia;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
